@@ -1,4 +1,4 @@
-package main.java.net.chocomint.freeway_handler.utils;
+package net.chocomint.freeway_handler.utils;
 
 public class UnitTrans {
 	public static float km2float(String km) {
