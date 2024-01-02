@@ -2,7 +2,7 @@ package net.chocomint.freeway_handler;
 
 import net.chocomint.freeway_handler.exceptions.OutOfRoadException;
 import net.chocomint.freeway_handler.utils.Coordinate;
-import net.chocomint.freeway_handler.utils.RoadLocator;
+import net.chocomint.freeway_handler.road.RoadLocator;
 import org.xml.sax.SAXException;
 
 import javax.xml.parsers.ParserConfigurationException;

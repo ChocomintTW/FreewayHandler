@@ -1,9 +1,10 @@
-package net.chocomint.freeway_handler.utils;
+package net.chocomint.freeway_handler.road;
 
 import net.chocomint.freeway_handler.FreewayHandler;
 import net.chocomint.freeway_handler.exceptions.OutOfRoadException;
-import net.chocomint.freeway_handler.road.RoadMileage;
-import net.chocomint.freeway_handler.road.Section;
+import net.chocomint.freeway_handler.utils.Coordinate;
+import net.chocomint.freeway_handler.utils.CoordinateWithSectionId;
+import net.chocomint.freeway_handler.utils.LineString;
 
 import java.util.List;
 import java.util.Map;
