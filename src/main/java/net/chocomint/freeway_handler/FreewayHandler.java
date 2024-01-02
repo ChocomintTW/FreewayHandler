@@ -1,5 +1,7 @@
 package net.chocomint.freeway_handler;
 
+import net.chocomint.freeway_handler.road.Interchange;
+import net.chocomint.freeway_handler.road.InterchangeType;
 import net.chocomint.freeway_handler.utils.CoordinateWithSectionId;
 import net.chocomint.freeway_handler.road.Section;
 import org.w3c.dom.Node;
@@ -11,15 +13,13 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class FreewayHandler {
 	public static List<Section> SECTION_LIST = null;
 	public static List<CoordinateWithSectionId> COORDINATE_LIST = null;
 	public static Map<String, String> SHAPE_MAP = null;
+	public static List<Interchange> INTERCHANGE_LIST = null;
 
 	public static void init() throws ParserConfigurationException, IOException, SAXException {
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
@@ -35,6 +35,9 @@ public class FreewayHandler {
 				sections.add(Section.fromNode(sectionList.item(i)));
 		}
 		SECTION_LIST = sections;
+
+		// Interchange
+		INTERCHANGE_LIST = getInterchanges(sections);
 
 		// Shape
 		root = builder.parse(new File("src/main/resources/SectionShape.xml")).getDocumentElement();
@@ -56,6 +59,25 @@ public class FreewayHandler {
 		}
 		COORDINATE_LIST = list;
 		SHAPE_MAP = shapeMap;
+	}
+
+	private static List<Interchange> getInterchanges(List<Section> sections) {
+		List<Interchange> icList = new ArrayList<>();
+		Set<String> set = new HashSet<>();
+		for (Section sec : sections) {
+			String name = sec.start();
+			if (!set.contains(name)) {
+				InterchangeType type = InterchangeType.IC;
+				if (name.contains("轉接")) type = InterchangeType.TC;
+				else if (name.contains("服務區")) type = InterchangeType.SA;
+				else if (name.contains("系統")) type = InterchangeType.SIC;
+				else if (name.contains("端")) type = InterchangeType.TP;
+
+				icList.add(new Interchange(type, name, sec.startKm(), sec.roadName()));
+				set.add(name);
+			}
+		}
+		return icList;
 	}
 
 	public static void ifNullInit() throws ParserConfigurationException, IOException, SAXException {

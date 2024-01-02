@@ -1,6 +1,6 @@
 package net.chocomint.freeway_handler.road;
 
-import main.java.net.chocomint.freeway_handler.utils.UnitTrans;
+import net.chocomint.freeway_handler.utils.UnitTrans;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
