@@ -1,6 +1,7 @@
 package net.chocomint.freeway_handler;
 
 import net.chocomint.freeway_handler.exceptions.OutOfRoadException;
+import net.chocomint.freeway_handler.road.InterchangeType;
 import net.chocomint.freeway_handler.road.Section;
 import net.chocomint.freeway_handler.utils.Coordinate;
 import net.chocomint.freeway_handler.road.RoadLocator;
@@ -22,6 +23,12 @@ import java.util.Map;
 
 public class Test {
 	public static void main(String[] args) throws ParserConfigurationException, IOException, SAXException {
+		FreewayHandler.init();
+
+		FreewayHandler.INTERCHANGE_LIST.stream().filter(i -> i.type() == InterchangeType.TC).forEach(System.out::println);
+	}
+
+	public static void liveTrafficReader() throws ParserConfigurationException, IOException, SAXException {
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder builder = factory.newDocumentBuilder();
 
