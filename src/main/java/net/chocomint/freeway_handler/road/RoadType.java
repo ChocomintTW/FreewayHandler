@@ -1,6 +1,6 @@
 package net.chocomint.freeway_handler.road;
 
-public enum RoadClass {
+public enum RoadType {
 	NationalExpressway(0, "國道"),
 	Expressway        (1, "快速道路"),
 	UrbanExpressway   (2, "市區快速道路"),
@@ -13,7 +13,7 @@ public enum RoadClass {
 	public final int id;
 	public final String name;
 
-	RoadClass(int id, String name) {
+	RoadType(int id, String name) {
 		this.id = id;
 		this.name = name;
 	}

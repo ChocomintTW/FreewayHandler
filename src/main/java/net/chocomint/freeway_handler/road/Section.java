@@ -7,7 +7,7 @@ import org.w3c.dom.NodeList;
 import java.util.ArrayList;
 import java.util.List;
 
-public record Section(String id, String name, String roadId, String roadName, RoadClass roadClass, Direction direction,
+public record Section(String id, String name, String roadId, String roadName, RoadType roadType, Direction direction,
                       String start, String end, float startKm, float endKm, int speedLimit) {
 
 	public static Section fromNode(Node node) {
@@ -22,7 +22,7 @@ public record Section(String id, String name, String roadId, String roadName, Ro
 		String name = list.get(1).getTextContent();
 		String roadId = list.get(2).getTextContent();
 		String roadName = list.get(3).getTextContent();
-		RoadClass roadClass = RoadClass.values()[Integer.parseInt(list.get(4).getTextContent())];
+		RoadType roadType = RoadType.values()[Integer.parseInt(list.get(4).getTextContent())];
 		Direction direction = Direction.fromAbbr(list.get(5).getTextContent().charAt(0));
 		String start = list.get(6).getChildNodes().item(1).getTextContent();
 		String end = list.get(6).getChildNodes().item(3).getTextContent();
@@ -30,7 +30,7 @@ public record Section(String id, String name, String roadId, String roadName, Ro
 		float endKm = UnitTrans.km2float(list.get(8).getChildNodes().item(3).getTextContent());
 		int speedLimit = Integer.parseInt(list.get(9).getTextContent());
 
-		return new Section(id, name, roadId, roadName, roadClass, direction, start, end, startKm, endKm, speedLimit);
+		return new Section(id, name, roadId, roadName, roadType, direction, start, end, startKm, endKm, speedLimit);
 	}
 
 	public float length() {

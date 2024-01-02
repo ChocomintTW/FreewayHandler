@@ -51,6 +51,6 @@ public class RoadLocator {
 		}
 		double km = (section.startKm() * (length - accumulation) + section.endKm() * accumulation) / length;
 
-		return new RoadMileage(section.roadName(), section.roadClass(), (float) km);
+		return new RoadMileage(section.roadName(), section.roadType(), (float) km);
 	}
 }
