@@ -1,8 +1,8 @@
 package net.chocomint.freeway_handler;
 
 import net.chocomint.freeway_handler.exceptions.OutOfRoadException;
-import net.chocomint.freeway_handler.road.InterchangeType;
-import net.chocomint.freeway_handler.road.Section;
+import net.chocomint.freeway_handler.road.RoadMileage;
+import net.chocomint.freeway_handler.road.interchange.InterchangeType;
 import net.chocomint.freeway_handler.utils.Coordinate;
 import net.chocomint.freeway_handler.road.RoadLocator;
 import net.chocomint.freeway_handler.utils.Time;
@@ -14,18 +14,47 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.time.LocalDateTime;
-import java.time.OffsetDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Test {
-	public static void main(String[] args) throws ParserConfigurationException, IOException, SAXException {
+	public static void main(String[] args) throws ParserConfigurationException, IOException, SAXException, OutOfRoadException {
 		FreewayHandler.init();
 
-		FreewayHandler.INTERCHANGE_LIST.stream().filter(i -> i.type() == InterchangeType.TC).forEach(System.out::println);
+//		FreewayHandler.INTERCHANGE_LIST.forEach(System.out::println);
+		// .stream().filter(i -> i.type == InterchangeType.SIC)
+
+		RoadMileage m = RoadLocator.findRoadMileage(Coordinate.parse("25.063790, 121.339217"));
+		System.out.println(m);
+	}
+
+	public static void writeFile2Desktop() throws IOException {
+		FileWriter writer1 = new FileWriter("C:/Users/user/Desktop/ic_list.txt");
+		FreewayHandler.INTERCHANGE_LIST.forEach(interchange -> {
+			try {
+				if (!interchange.coordinate.isError())
+					writer1.write(interchange.name + " " + interchange.coordinate.longitude + " " + interchange.coordinate.latitude + "\n");
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+			}
+		});
+		writer1.close();
+
+		FileWriter writer2 = new FileWriter("C:/Users/user/Desktop/point_list.txt");
+		FreewayHandler.COORDINATE_LIST.forEach(coordinate -> {
+			try {
+				writer2.write(coordinate.longitude + " " + coordinate.latitude + "\n");
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+			}
+		});
+		writer2.close();
 	}
 
 	public static void liveTrafficReader() throws ParserConfigurationException, IOException, SAXException {
@@ -55,7 +84,7 @@ public class Test {
 	public static void find() throws ParserConfigurationException, IOException, SAXException {
 		FreewayHandler.init();
 
-		Coordinate coordinate = Coordinate.parse("23.982771, 120.987949");
+		Coordinate coordinate = Coordinate.parse("22.571462, 120.528068");
 
 		try {
 			System.out.println(coordinate + " is at " + RoadLocator.findRoadMileage(coordinate));

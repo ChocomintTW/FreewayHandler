@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="FreewayHandler:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/FreewayHandler_jar</output-path>
+    <root id="archive" name="FreewayHandler.jar">
+      <element id="module-output" name="FreewayHandler" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/jfree/jfreechart/1.5.4/jfreechart-1.5.4.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

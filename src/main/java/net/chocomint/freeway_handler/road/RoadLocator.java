@@ -3,7 +3,6 @@ package net.chocomint.freeway_handler.road;
 import net.chocomint.freeway_handler.FreewayHandler;
 import net.chocomint.freeway_handler.exceptions.OutOfRoadException;
 import net.chocomint.freeway_handler.utils.Coordinate;
-import net.chocomint.freeway_handler.utils.CoordinateWithSectionId;
 import net.chocomint.freeway_handler.utils.LineString;
 
 import java.util.List;
@@ -13,12 +12,12 @@ import java.util.Objects;
 public class RoadLocator {
 	public static Section nearestSection(Coordinate coordinate) throws OutOfRoadException {
 		double nearestDist = Double.MAX_VALUE;
-		CoordinateWithSectionId nearestCoordinate = new CoordinateWithSectionId("", new Coordinate(0, 0));
-		for (CoordinateWithSectionId cw : FreewayHandler.COORDINATE_LIST) {
-			double dist = Coordinate.distance(coordinate, cw.coordinate());
+		Coordinate nearestCoordinate = new Coordinate(0, 0);
+		for (Coordinate c : FreewayHandler.COORDINATE_LIST) {
+			double dist = Coordinate.distance(coordinate, c);
 			if (dist < nearestDist) {
 				nearestDist = dist;
-				nearestCoordinate = cw;
+				nearestCoordinate = c;
 			}
 		}
 
@@ -26,7 +25,7 @@ public class RoadLocator {
 			throw new OutOfRoadException();
 
 		for (Section section : FreewayHandler.SECTION_LIST) {
-			if (Objects.equals(section.id(), nearestCoordinate.id())) {
+			if (Objects.equals(section.id, FreewayHandler.COORDINATE_ID_MAP.get(nearestCoordinate))) {
 				return section;
 			}
 		}
@@ -39,7 +38,7 @@ public class RoadLocator {
 		Map<String, String> shapeMap = FreewayHandler.SHAPE_MAP;
 
 		assert section != null;
-		List<Coordinate> list = LineString.linestring2coordinateList(shapeMap.get(section.id()));
+		List<Coordinate> list = LineString.linestring2coordinateList(shapeMap.get(section.id));
 		double length = section.length();
 		double accumulation = 0;
 		for (int i = 0; i < list.size() - 1; i++) {
@@ -49,8 +48,8 @@ public class RoadLocator {
 			}
 			accumulation += Coordinate.realDistance(list.get(i), list.get(i + 1));
 		}
-		double km = (section.startKm() * (length - accumulation) + section.endKm() * accumulation) / length;
+		double km = (section.startKm * (length - accumulation) + section.endKm * accumulation) / length;
 
-		return new RoadMileage(section.roadName(), section.roadType(), (float) km);
+		return new RoadMileage(section.roadName, section.roadType, (float) km);
 	}
 }

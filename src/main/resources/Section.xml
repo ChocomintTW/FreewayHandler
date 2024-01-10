@@ -3030,9 +3030,9 @@
 	</Section>
 		<Section>
 			<SectionID>0475</SectionID>
-			<SectionName>國道1號(58管制站到第二貨櫃中心交流道)</SectionName>
+			<SectionName>高雄港聯外高架道路(58管制站到第二貨櫃中心交流道)</SectionName>
 			<RoadID>000010</RoadID>
-			<RoadName>國道1號</RoadName>
+			<RoadName>高雄港聯外高架道路</RoadName>
 			<RoadClass>0</RoadClass>
 			<RoadDirection>N</RoadDirection>
 			<RoadSection>
@@ -3048,9 +3048,9 @@
 	</Section>
 		<Section>
 			<SectionID>0477</SectionID>
-			<SectionName>國道1號(第二貨櫃中心交流道到高雄端)</SectionName>
+			<SectionName>高雄港聯外高架道路(第二貨櫃中心交流道到高雄端)</SectionName>
 			<RoadID>000010</RoadID>
-			<RoadName>國道1號</RoadName>
+			<RoadName>高雄港聯外高架道路</RoadName>
 			<RoadClass>0</RoadClass>
 			<RoadDirection>N</RoadDirection>
 			<RoadSection>
@@ -3066,9 +3066,9 @@
 	</Section>
 		<Section>
 			<SectionID>0479</SectionID>
-			<SectionName>國道1號(高雄端到過港隧道交流道)</SectionName>
+			<SectionName>高雄港聯外高架道路(高雄端到過港隧道交流道)</SectionName>
 			<RoadID>000010</RoadID>
-			<RoadName>國道1號</RoadName>
+			<RoadName>高雄港聯外高架道路</RoadName>
 			<RoadClass>0</RoadClass>
 			<RoadDirection>N</RoadDirection>
 			<RoadSection>
@@ -3084,9 +3084,9 @@
 	</Section>
 		<Section>
 			<SectionID>0481</SectionID>
-			<SectionName>國道1號(過港隧道交流道到三、五管制站)</SectionName>
+			<SectionName>高雄港聯外高架道路(過港隧道交流道到三、五管制站)</SectionName>
 			<RoadID>000010</RoadID>
-			<RoadName>國道1號</RoadName>
+			<RoadName>高雄港聯外高架道路</RoadName>
 			<RoadClass>0</RoadClass>
 			<RoadDirection>N</RoadDirection>
 			<RoadSection>
@@ -3102,9 +3102,9 @@
 	</Section>
 		<Section>
 			<SectionID>0476</SectionID>
-			<SectionName>國道1號(第二貨櫃中心交流道到58管制站)</SectionName>
+			<SectionName>高雄港聯外高架道路(第二貨櫃中心交流道到58管制站)</SectionName>
 			<RoadID>000010</RoadID>
-			<RoadName>國道1號</RoadName>
+			<RoadName>高雄港聯外高架道路</RoadName>
 			<RoadClass>0</RoadClass>
 			<RoadDirection>S</RoadDirection>
 			<RoadSection>
@@ -3120,9 +3120,9 @@
 	</Section>
 		<Section>
 			<SectionID>0478</SectionID>
-			<SectionName>國道1號(高雄端到第二貨櫃中心交流道)</SectionName>
+			<SectionName>高雄港聯外高架道路(高雄端到第二貨櫃中心交流道)</SectionName>
 			<RoadID>000010</RoadID>
-			<RoadName>國道1號</RoadName>
+			<RoadName>高雄港聯外高架道路</RoadName>
 			<RoadClass>0</RoadClass>
 			<RoadDirection>S</RoadDirection>
 			<RoadSection>
@@ -3138,9 +3138,9 @@
 	</Section>
 		<Section>
 			<SectionID>0480</SectionID>
-			<SectionName>國道1號(過港隧道交流道到高雄端)</SectionName>
+			<SectionName>高雄港聯外高架道路(過港隧道交流道到高雄端)</SectionName>
 			<RoadID>000010</RoadID>
-			<RoadName>國道1號</RoadName>
+			<RoadName>高雄港聯外高架道路</RoadName>
 			<RoadClass>0</RoadClass>
 			<RoadDirection>S</RoadDirection>
 			<RoadSection>
@@ -3156,9 +3156,9 @@
 	</Section>
 		<Section>
 			<SectionID>0482</SectionID>
-			<SectionName>國道1號(三、五管制站到過港隧道交流道)</SectionName>
+			<SectionName>高雄港聯外高架道路(三、五管制站到過港隧道交流道)</SectionName>
 			<RoadID>000010</RoadID>
-			<RoadName>國道1號</RoadName>
+			<RoadName>高雄港聯外高架道路</RoadName>
 			<RoadClass>0</RoadClass>
 			<RoadDirection>S</RoadDirection>
 			<RoadSection>

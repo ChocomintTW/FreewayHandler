@@ -6,8 +6,8 @@ import java.util.List;
 public class LineString {
 	public static List<Coordinate> linestring2coordinateList(String linestring) {
 		List<Coordinate> list = new ArrayList<>();
-		for (String pair : linestring.replaceAll("LINESTRING\\(|\\)", "").split(",")) {
-			list.add(CoordinateWithSectionId.fromPair("", pair).coordinate());
+		for (String str : linestring.replaceAll("LINESTRING\\(|\\)", "").split(",")) {
+			list.add(Coordinate.fromShapeFormat(str));
 		}
 		return list;
 	}

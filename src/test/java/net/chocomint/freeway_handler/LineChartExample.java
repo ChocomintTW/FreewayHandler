@@ -1,6 +1,6 @@
 package net.chocomint.freeway_handler;
 
-import net.chocomint.freeway_handler.utils.CoordinateWithSectionId;
+import net.chocomint.freeway_handler.utils.Coordinate;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
@@ -20,11 +20,11 @@ public class LineChartExample extends JFrame {
 	public LineChartExample(String title) throws ParserConfigurationException, IOException, SAXException {
 		super(title);
 
-		List<CoordinateWithSectionId> list = FreewayHandler.COORDINATE_LIST;
+		List<Coordinate> list = FreewayHandler.COORDINATE_LIST;
 
 		// Create a dataset
 		XYSeries series = new XYSeries("");
-		list.forEach(coordinate -> series.add(coordinate.coordinate().longitude(), coordinate.coordinate().latitude()));
+		list.forEach(coordinate -> series.add(coordinate.longitude, coordinate.latitude));
 
 		XYSeriesCollection dataset = new XYSeriesCollection(series);
 
